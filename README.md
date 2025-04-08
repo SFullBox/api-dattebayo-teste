@@ -1,71 +1,68 @@
-# Getting Started with Create React App
+# Naruto Gallery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Um aplicativo React que exibe uma galeria de personagens do universo de Naruto, consumindo dados de uma API para listar ninjas, clãs, imagens e jutsus.
 
-## Available Scripts
+## 🚀 Instalação
 
-In the project directory, you can run:
+### Pré-requisitos
 
-### `npm start`
+- Node.js instalado
+- npm ou yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Passos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd naruto-gallery
+npm install # ou yarn install
+npm start   # ou yarn start
+```
 
-### `npm test`
+Acesse em: [http://localhost:3000](http://localhost:3000)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Estrutura do Projeto
 
-### `npm run build`
+- **App.js**: Componente principal que gerencia o estado dos ninjas.
+- **NarutoGallery.js**: Renderiza os ninjas.
+- **services/api.js**: Configura a comunicação com a API.
+- **styles/**: Estilos CSS do app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📡 API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A API retorna dados dos personagens:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+const response = await api.get('characters');
+```
 
-### `npm run eject`
+### Exemplo de resposta:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```json
+{
+  "characters": [
+    {
+      "name": "Naruto Uzumaki",
+      "natureType": "Wind Release  (Affinity)",
+      "images": ["url_da_imagem"],
+      "jutsu": ["Rasengan", "Kage Bunshin no Jutsu"]
+    }
+  ]
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Tratamento de erros:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```js
+catch (err) {
+  console.error('Erro ao obter ninjas:', err);
+  setError('Falha ao carregar os ninjas');
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔗 API
 
-## Learn More
+- https://api-dattebayo.vercel.app/docs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# api-dattebayo-teste" 
+Com isso, o app estará pronto para uso!
